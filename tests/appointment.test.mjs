@@ -1,0 +1,6 @@
+import { test } from 'node:test'; import assert from 'node:assert/strict';
+import { tomorrowISO, validFutureDate, composeRequest } from '../js/appointment.js';
+test('amanhã respeita viradas de mês, ano e ano bissexto locais', () => { assert.equal(tomorrowISO(new Date(2026,11,31)), '2027-01-01'); assert.equal(tomorrowISO(new Date(2028,1,28)), '2028-02-29'); });
+test('rejeita hoje, passado, vazio e datas impossíveis', () => { const now = new Date(2026,9,12); for (const value of ['', '2026-10-12','2026-10-11','2027-02-30','2027-13-01','abc']) assert.equal(validFutureDate(value, now), false); assert.equal(validFutureDate('2026-10-13', now), true); });
+test('mensagem contém escolhas e aviso, sem campos opcionais vazios', () => { const message = composeRequest({interest:'Ainda não sei',period:'Sem preferência',date:'2026-10-13',firstName:'',message:''}); assert.match(message, /13\/10\/2026/); assert.match(message, /Não representa agendamento/); assert.doesNotMatch(message, /Primeiro nome:/); });
+test('conteúdo livre continua texto literal', () => { const message = composeRequest({interest:'Prevenção',period:'Manhã',date:'2026-10-13',firstName:'<script>',message:'Uma conversa & informação'}); assert.ok(message.includes('<script>')); assert.ok(message.includes('Uma conversa & informação')); });

@@ -1,0 +1,5 @@
+{
+  "name": "alva-dental", "version": "1.0.0", "private": true, "type": "module",
+  "scripts": {"build": "node scripts/build.mjs", "dev": "node scripts/serve.mjs", "test": "node --test tests/*.test.mjs"},
+  "devDependencies": {"@tailwindcss/cli": "4.1.18", "tailwindcss": "4.1.18", "gsap": "3.14.2", "lucide": "0.562.0", "@fontsource/cormorant-garamond": "5.2.8", "@fontsource/dm-sans": "5.2.8"}
+}

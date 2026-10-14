@@ -93,4 +93,3 @@ O status verificado desta entrega e resultados medidos ficam em `VALIDATION.md`.
 Sem atendimento real, endereço físico, telefone, profissionais, CRO ou redes sociais. Email `.example` é texto demonstrativo, sem envio. Mensagens não têm persistência. Não há calendário de disponibilidade. Testes automatizados não substituem avaliação com tecnologias assistivas e dispositivos reais. Antes de uso comercial, revisar publicidade odontológica, responsabilidade profissional, licenciamento e privacidade conforme normas brasileiras aplicáveis.
 
 Créditos e fontes: [LICENSE-ASSETS.md](./LICENSE-ASSETS.md). Créditos de IA por tarefa não foram disponibilizados pelo ambiente; o percentual exato de 70% não pode ser certificado.
-
