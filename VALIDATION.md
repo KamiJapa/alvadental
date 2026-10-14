@@ -1,33 +1,35 @@
-# Validação — 12/10/2026
+# Validação da ALVA DENTAL
 
-## Ambiente e verificações executadas
+## Implementação e testes
 
-- Prévia local: `http://127.0.0.1:4173`, build estático, navegador integrado do Codex para inspeção e interações.
-- Auditoria complementar automatizada: Playwright com Chrome instalado, headless, e Lighthouse mobile. Ferramentas e screenshots fora do repositório. A conexão do Chrome ao localhost exigiu execução fora do sandbox.
-- `npm run build`, `npm test` (4 testes), `node scripts/package.mjs`: aprovados.
-- 320, 360, 375, 390, 430, 768, 1024, 1280, 1440 e 1920 px: largura do documento igual à largura disponível, sem overflow horizontal.
-- Seis especialidades: abertura, conteúdo, Tab dentro do dialog, Escape e restauração de foco aprovados.
-- Seis imagens da galeria: abertura e carregamento; setas do teclado e fechamento aprovados.
-- Seis FAQs: abrir/fechar por clique e Enter aprovados.
-- Menu mobile, Escape, links internos e destinos de âncoras aprovados.
-- Formulário: bloqueio de opções vazias e data passada, cinco etapas, revisão, copiar, voltar, editar, preservar escolhas e reiniciar aprovados. Texto com marcação HTML permaneceu texto literal.
-- Cópia real pelo clipboard autorizada no contexto de teste; mensagem não foi enviada. Nenhum agendamento criado.
-- Movimento reduzido: `scroll-behavior: auto` e reversão de GSAP. Conteúdo/FAQ e aviso de formulário disponíveis sem JS.
+- Doze seções, seis especialidades interativas, seis imagens conceituais, galeria com lightbox, FAQ e formulário demonstrativo em cinco etapas.
+- Build de produção, quatro testes unitários e empacotamento aprovados.
+- Testes de interface em 320, 360, 375, 390, 430, 768, 1024, 1280, 1440 e 1920 px: sem overflow horizontal.
+- Menu mobile, âncoras, modais, Escape, restauração de foco, galeria por teclado e seis FAQs aprovados.
+- Formulário: validações de escolhas e datas, revisão, cópia, retorno, edição e reinício aprovados. Conteúdo livre permaneceu texto literal.
+- Movimento reduzido e conteúdo/FAQ sem JavaScript verificados.
 - Nenhum erro de console ou imagem quebrada nos testes automatizados.
-- `npm install`: auditoria de 32 pacotes, zero vulnerabilidades reportadas.
+- Auditoria final axe: zero violações nos critérios automáticos WCAG testados. Não equivale à certificação integral de acessibilidade.
+- Auditoria de dependências durante a implementação: zero vulnerabilidades reportadas.
 
-## Correções decorrentes dos testes
+## Lighthouse
 
-Conflito do nome container com utilitário Tailwind; timeline em 320 px; preferência de movimento reduzido sobre estilo inline; contraste preservado durante animações; aviso sem JS; nome acessível do logotipo; contraste de números da seção experiência. Subconjunto Lucide substituiu catálogo completo no build.
+Medição mobile local em 12/10/2026, antes do último ajuste de contraste: Performance **89**, Accessibility **96**, Best Practices **100**, SEO **92**. As pontuações não garantem os resultados da hospedagem. Performance ficou um ponto abaixo da meta; cache, compressão e entrega de imagens são oportunidades adicionais. Não houve validação integral em Safari, Firefox ou leitores de tela.
 
-## Lighthouse local
+## GitHub e publicação
 
-Última medição mobile antes do ajuste final de cor dos números: Performance **89**, Accessibility **96**, Best Practices **100**, SEO **92**. Condição: servidor local sem compressão e cache de produção. São medições reais desta execução, não garantias da hospedagem. Performance ficou um ponto abaixo da meta 90; resta oportunidade em entrega de imagens, cache e carregamento. Não foi feita auditoria integral com leitor de tela ou Safari/Firefox.
+Código publicado na main em 14/10/2026. Commit da implementação: `41cb4edcdce68a48ed743d3b8c8e42d2ebfb331e`.
 
-## Publicação
+[Workflow verificado](https://github.com/KamiJapa/alvadental/actions/runs/38638402414): instalação, testes, build e empacotamento aprovados. A etapa de configuração do Pages falhou com `Get Pages site failed / Not Found`: GitHub Pages ainda não habilitado. A URL esperada retornou HTTP 404 em 14/10/2026. O site não foi confirmado online; headers HTTP de produção não foram certificados.
 
-Workflow GitHub Pages preparado. Status público deve ser confirmado após push e ativação. As instruções exatas de ativação estão no README. Não há headers HTTP de produção confirmados nesta etapa.
+Para ativar:
 
-## Orçamento
+1. Abra [Settings → Pages](https://github.com/KamiJapa/alvadental/settings/pages) na conta proprietária.
+2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
+3. Em **Actions → Validate and deploy ALVA → Run workflow**, selecione **main** e execute.
+4. Aguarde sucesso, confira `https://kamijapa.github.io/alvadental/` e ative **Enforce HTTPS**, se disponível.
 
-O ambiente expôs limites compartilhados da conta, sem consumo de créditos por tarefa. No início, 10% da janela de 5 horas e 17% da semanal estavam usados. Não é possível certificar um percentual exato de créditos desta tarefa. Uma única implementação, sem agentes paralelos e com testes dirigidos.
+## Limites
+
+A clínica é fictícia, as imagens são conceituais e nenhum agendamento ou envio real é realizado. O limite exato de 70% de créditos não pôde ser verificado porque não há medição de créditos por tarefa disponível.
+
